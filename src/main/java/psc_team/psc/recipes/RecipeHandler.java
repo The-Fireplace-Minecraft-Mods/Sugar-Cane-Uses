@@ -1,4 +1,4 @@
-package the_fireplace.sugarcaneuses.recipes;
+package psc_team.psc.recipes;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;

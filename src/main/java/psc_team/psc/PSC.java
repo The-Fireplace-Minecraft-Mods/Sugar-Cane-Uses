@@ -1,4 +1,4 @@
-package the_fireplace.sugarcaneuses;
+package psc_team.psc;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -8,15 +8,15 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import sirblobman.sugarcaneuses.items.SCUItems;
-import the_fireplace.sugarcaneuses.recipes.RecipeHandler;
+import psc_team.psc.items.SCUItems;
+import psc_team.psc.recipes.RecipeHandler;
 
 /**
  * @author The_Fireplace
  * @author SirBlobman
  */
-@Mod(modid=SugarCaneUses.MODID, name=SugarCaneUses.MODNAME)
-public class SugarCaneUses {
+@Mod(modid= PSC.MODID, name= PSC.MODNAME)
+public class PSC {
 	public static final String MODID = "psc";
 	public static final String MODNAME = "Project Sugar Cane";
 	public static String VERSION;

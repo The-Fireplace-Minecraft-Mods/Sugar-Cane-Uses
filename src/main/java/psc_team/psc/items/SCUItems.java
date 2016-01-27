@@ -1,4 +1,4 @@
-package sirblobman.sugarcaneuses.items;
+package psc_team.psc.items;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -10,8 +10,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class SCUItems 
 {
-	//Register the Creative Tab named itemGroup.SugarCaneUses
-	public static final CreativeTabs SugarCaneUses = new CreativeTabs("SugarCaneUses")
+	//Register the Creative Tab named itemGroup.PSC
+	public static final CreativeTabs SugarCaneUses = new CreativeTabs("PSC")
 	{
 		//Overrides default method, changes the icon for the creative tab -- SirBlobman
 		@Override

@@ -1,4 +1,4 @@
-package sirblobman.sugarcaneuses.items;
+package psc_team.psc.items;
 
 import net.minecraft.item.Item;
 
