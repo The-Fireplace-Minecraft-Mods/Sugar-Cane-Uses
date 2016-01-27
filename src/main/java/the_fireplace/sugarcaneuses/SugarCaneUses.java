@@ -17,8 +17,8 @@ import the_fireplace.sugarcaneuses.recipes.RecipeHandler;
  */
 @Mod(modid=SugarCaneUses.MODID, name=SugarCaneUses.MODNAME)
 public class SugarCaneUses {
-	public static final String MODID = "sugarcaneuses";
-	public static final String MODNAME = "Sugar Cane Uses";
+	public static final String MODID = "psc";
+	public static final String MODNAME = "Project Sugar Cane";
 	public static String VERSION;
 
 	@Mod.EventHandler
