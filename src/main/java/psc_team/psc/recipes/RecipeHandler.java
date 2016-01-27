@@ -16,10 +16,10 @@ public class RecipeHandler {
 	static ItemStack glueStack = new ItemStack(Items.slime_ball);
 
 	/**
-	 * Register recipes here. The first line will be a commented out example.
+	 * Register recipes here. The first line will be a <b>commented out</b> example.
 	 */
 	public static void registerRecipes(){
-		addRecipe(sugarCaneStack, "s", "g", "s", 's', sugarStack, 'g', glueStack);
+		//addRecipe(sugarCaneStack, "s", "g", "s", 's', sugarStack, 'g', glueStack);
 
 	}
 
