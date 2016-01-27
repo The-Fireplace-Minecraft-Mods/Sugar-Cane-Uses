@@ -22,12 +22,20 @@ public class SCUItems
 	};
 	
 	//Item Objects
-	public static Item reinforcedSugarCane;
+	public static Item reinforcedSugarCane = new BasicItem("reinforced_sugar_cane");
 	
 	//Register Items
 	public static void createItems()
 	{
-		//GameRegistry code: .registerItem(object = new Class(unlocalizedName), "item_name" -- SirBlobman
-		GameRegistry.registerItem(reinforcedSugarCane = new BasicItem("reinforced_sugar_cane"), "reinforced_sugar_cane");
+		register(reinforcedSugarCane);
+	}
+
+	/**
+	 * Registers an item to the gameregistry
+	 * @param i
+	 * 		The item being registered
+	 */
+	static void register(Item i){
+		GameRegistry.registerItem(i, i.getUnlocalizedName().substring(5));
 	}
 }
