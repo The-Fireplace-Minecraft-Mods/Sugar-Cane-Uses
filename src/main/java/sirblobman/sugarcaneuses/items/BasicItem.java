@@ -3,7 +3,7 @@ package sirblobman.sugarcaneuses.items;
 import net.minecraft.item.Item;
 
 /*
- * String Author = SirBlobman;
+ * @author SirBlobman
  */
 public class BasicItem extends Item 
 {

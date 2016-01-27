@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /*
- * String Author = SirBlobman;
+ * @author SirBlobman
  */
 public class SCUItems 
 {

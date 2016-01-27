@@ -12,7 +12,8 @@ import sirblobman.sugarcaneuses.items.SCUItems;
 import the_fireplace.sugarcaneuses.recipes.RecipeHandler;
 
 /**
- * String Author = The_Fireplace + SirBlobman;
+ * @author The_Fireplace
+ * @author SirBlobman
  */
 @Mod(modid=SugarCaneUses.MODID, name=SugarCaneUses.MODNAME)
 public class SugarCaneUses {

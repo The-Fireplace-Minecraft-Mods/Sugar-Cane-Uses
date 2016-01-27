@@ -6,7 +6,8 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 /**
- * int Author = The_Fireplace + SirBlobman;
+ * @author The_Fireplace
+ * @author SirBlobman
  */
 public class RecipeHandler {
 	//Put ItemStacks to be used in recipes here. An ItemStack with Sugar Cane is below as an example.
