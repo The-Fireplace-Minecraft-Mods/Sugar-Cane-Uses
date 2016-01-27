@@ -2,6 +2,8 @@ package psc_team.psc;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,6 +22,17 @@ public class PSC {
 	public static final String MODID = "psc";
 	public static final String MODNAME = "Project Sugar Cane";
 	public static String VERSION;
+
+	//Register the Creative Tab named itemGroup.PSC
+	public static final CreativeTabs PSC = new CreativeTabs("PSC")
+	{
+		//Overrides default method, changes the icon for the creative tab -- SirBlobman
+		@Override
+		public Item getTabIconItem()
+		{
+			return Items.reeds;
+		}
+	};
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){

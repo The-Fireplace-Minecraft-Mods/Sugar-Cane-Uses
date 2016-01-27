@@ -23,7 +23,6 @@ public class RecipeHandler {
 
 	}
 
-	//Changed to static to fix error -- SirBlobman
 	private static void addRecipe(ItemStack output, Object... inputs){
 		GameRegistry.addRecipe(new ShapedOreRecipe(output, inputs));
 	}
