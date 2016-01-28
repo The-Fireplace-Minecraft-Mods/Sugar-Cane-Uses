@@ -274,11 +274,14 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 
 	@Override
 	public int[] getSlotsForFace(EnumFacing side) {
-		if(side == EnumFacing.EAST || side == EnumFacing.WEST || side == EnumFacing.NORTH || side == EnumFacing.SOUTH || side == EnumFacing.UP){
-			return new int[]{0,1,2,3,4,10,11};
+		if(side == EnumFacing.UP){
+			return new int[]{0,1,2,3,4};//Items to dehydrate
+		}
+		if(side == EnumFacing.EAST || side == EnumFacing.WEST || side == EnumFacing.NORTH || side == EnumFacing.SOUTH){
+			return new int[]{10};//Fuel
 		}
 		if(side == EnumFacing.DOWN){
-			return new int[]{5,6,7,8,9};
+			return new int[]{5,6,7,8,9,11};//Depleted fuel, dehydrated items
 		}
 		return null;
 	}
