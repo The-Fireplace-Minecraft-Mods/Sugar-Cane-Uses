@@ -12,6 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
+import psc_team.psc.items.SCUItems;
 import psc_team.psc.recipes.DehydratorRecipes;
 import psc_team.psc.tools.Tools;
 
@@ -25,6 +26,7 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 	private ItemStack[] inventory;
 	public static final String PROP_NAME = "TileEntityDehydrator";
 	int storedFuel = 0;
+	int depletedCounter = 0;
 
 	public TileEntityDehydrator(){
 		inventory = new ItemStack[12];
@@ -160,6 +162,7 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 			}
 		}
 		compound.setInteger("StoredFuel", storedFuel);
+		compound.setInteger("DepletedFuel", depletedCounter);
 		compound.setTag("ItemsDehydrator", list);
 	}
 
@@ -179,6 +182,7 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 			System.out.println("List was null when reading TileEntityDehydrator NBTTagCompound");
 		}
 		this.storedFuel = compound.getInteger("StoredFuel");
+		this.depletedCounter = compound.getInteger("DepletedFuel");
 	}
 
 	public void addToFuel(int amount){
@@ -188,8 +192,19 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 
 	public void removeFromFuel(int amount){
 		storedFuel -= amount;
-		if(storedFuel < 0){
+		depletedCounter += amount;
+		if(storedFuel < 0)
 			storedFuel = 0;
+		if(depletedCounter >= 6400){
+			if(this.getStackInSlot(11) != null) {
+				if (this.getStackInSlot(11).stackSize < 64) {
+					depletedCounter -= 6400;
+					this.setInventorySlotContents(11, new ItemStack(SCUItems.depletedFuelBar, this.getStackInSlot(11).stackSize + 1));
+				}
+			}else{
+				depletedCounter -= 6400;
+				this.setInventorySlotContents(11, new ItemStack(SCUItems.depletedFuelBar));
+			}
 		}
 		this.worldObj.markBlockForUpdate(getPos());
 	}

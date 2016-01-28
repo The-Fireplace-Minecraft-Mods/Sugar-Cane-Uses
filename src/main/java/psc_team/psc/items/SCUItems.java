@@ -12,6 +12,7 @@ public class SCUItems
 	public static Item reinforcedSugarCane = new BasicItem("reinforced_sugar_cane");
 	public static Item sugarCaneStick = new BasicItem("sugar_cane_stick");
 	public static Item fuelBar = new BasicItem("fuel_bar");
+	public static Item depletedFuelBar = new BasicItem("depleted_fuel_bar");
 	
 	//Register Items
 	public static void createItems()
@@ -19,6 +20,7 @@ public class SCUItems
 		register(reinforcedSugarCane);
 		register(sugarCaneStick);
 		register(fuelBar);
+		register(depletedFuelBar);
 	}
 
 	/**
