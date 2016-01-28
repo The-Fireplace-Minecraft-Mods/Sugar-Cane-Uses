@@ -15,6 +15,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import psc_team.psc.PSC;
+import psc_team.psc.entity.tile.TileEntityDehydrator;
 import psc_team.psc.items.SCUItems;
 import psc_team.psc.tools.Tools;
 
