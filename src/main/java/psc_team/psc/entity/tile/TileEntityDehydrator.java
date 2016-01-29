@@ -258,7 +258,6 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 		}
 
 		if(firstSuitableInputSlot == null) return false;
-		if(this.storedFuel <= 0) return false;
 		if(!performAction) return true;
 
 		inventory[firstSuitableInputSlot].stackSize--;
