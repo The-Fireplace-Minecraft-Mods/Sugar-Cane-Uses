@@ -2,6 +2,7 @@ package psc_team.psc.container;
 
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import psc_team.psc.entity.tile.TileEntityDehydrator;
 import psc_team.psc.recipes.DehydratorRecipes;
 
@@ -26,10 +27,7 @@ public class SlotFuel extends Slot {
 	{
 		if(stack != null){
 			this.inventory.setInventorySlotContents(this.getSlotIndex(), stack);
-			if(stack.getItem().isDamageable())
-				inv.addToFuel(stack.getMaxDamage()-stack.getItemDamage());
-			else
-				inv.addToFuel(stack.stackSize);
+			inv.addToFuel(GameRegistry.getFuelValue(stack));
 			this.inventory.setInventorySlotContents(getSlotIndex(), null);
 		}
 	}

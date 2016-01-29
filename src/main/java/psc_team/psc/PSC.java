@@ -8,8 +8,10 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import psc_team.psc.handlers.PSCGuiHandler;
 import psc_team.psc.items.SCUItems;
 import psc_team.psc.recipes.RecipeHandler;
 
@@ -37,6 +39,7 @@ public class PSC {
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		//Register Items/Blocks/most everything else here
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new PSCGuiHandler());
 		SCUItems.createItems();
 	}
 	@Mod.EventHandler
