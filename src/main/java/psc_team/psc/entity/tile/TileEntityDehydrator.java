@@ -27,6 +27,9 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 	public static final String PROP_NAME = "TileEntityDehydrator";
 	int storedFuel = 0;
 	int depletedCounter = 0;
+	//Times are given in ticks
+	int time = 0;
+	public static final int processTime = 800;
 
 	public TileEntityDehydrator(){
 		inventory = new ItemStack[12];
@@ -217,10 +220,15 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 		if(canDehydrate()){
 				if(storedFuel > 0){
 					removeFromFuel(1);
+					time++;
 				}else
 					return;
-			dehydrate();
-		}
+			if(time >= processTime){
+				dehydrate();
+				time -= processTime;
+			}
+		}else if(time != 0)
+			time = 0;
 	}
 
 	private boolean canDehydrate(){return dehydrate(false);}
