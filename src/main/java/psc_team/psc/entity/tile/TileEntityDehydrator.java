@@ -1,7 +1,6 @@
 package psc_team.psc.entity.tile;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -10,12 +9,9 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import psc_team.psc.items.SCUItems;
 import psc_team.psc.recipes.DehydratorRecipes;
 import psc_team.psc.tools.Tools;
@@ -31,12 +27,6 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 	public static final String PROP_NAME = "TileEntityDehydrator";
 	int storedFuel = 0;
 	int depletedCounter = 0;
-	/** The number of ticks that the furnace will keep burning */
-	private int furnaceBurnTime;
-	/** The number of ticks that a fresh copy of the currently-burning item would keep the furnace burning for */
-	private int currentItemBurnTime;
-	private int cookTime;
-	private int totalCookTime;
 
 	public TileEntityDehydrator(){
 		inventory = new ItemStack[12];
@@ -103,24 +93,12 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 
 	@Override
 	public void setInventorySlotContents(int index, ItemStack stack) {
-		boolean flag = stack != null && stack.isItemEqual(this.inventory[index]) && ItemStack.areItemStackTagsEqual(stack, this.inventory[index]);
 		inventory[index] = stack;
 
 		if(stack != null && stack.stackSize > getInventoryStackLimit()){
 			stack.stackSize = getInventoryStackLimit();
 		}
-
-		if (index == 0 && !flag)
-		{
-			this.totalCookTime = this.getCookTime(stack);
-			this.cookTime = 0;
-			this.markDirty();
-		}
-	}
-
-	public int getCookTime(ItemStack stack)
-	{
-		return 800;
+		markDirty();
 	}
 
 	@Override
@@ -170,9 +148,7 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 	@Override
 	public void writeToNBT(NBTTagCompound compound){
 		super.writeToNBT(compound);
-		compound.setShort("BurnTime", (short)this.furnaceBurnTime);
-		compound.setShort("CookTime", (short)this.cookTime);
-		compound.setShort("CookTimeTotal", (short)this.totalCookTime);
+
 		NBTTagList list = new NBTTagList();
 		for(int i = 0; i<getSizeInventory();i++){
 			ItemStack is = getStackInSlot(i);
@@ -205,23 +181,8 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 		}else{
 			System.out.println("List was null when reading TileEntityDehydrator NBTTagCompound");
 		}
-		this.furnaceBurnTime = compound.getShort("BurnTime");
-		this.cookTime = compound.getShort("CookTime");
-		this.totalCookTime = compound.getShort("CookTimeTotal");
-		this.currentItemBurnTime = TileEntityFurnace.getItemBurnTime(this.inventory[1]);//TODO make sure this is correct.
 		this.storedFuel = compound.getInteger("StoredFuel");
 		this.depletedCounter = compound.getInteger("DepletedFuel");
-	}
-
-	public boolean isBurning()
-	{
-		return this.furnaceBurnTime > 0;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static boolean isBurning(IInventory p_174903_0_)
-	{
-		return p_174903_0_.getField(0) > 0;
 	}
 
 	public void addToFuel(int amount){
