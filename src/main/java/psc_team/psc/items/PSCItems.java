@@ -6,7 +6,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 /*
  * @author SirBlobman
  */
-public class SCUItems 
+public class PSCItems
 {
 	//Item Objects
 	public static Item reinforcedSugarCane = new BasicItem("reinforced_sugar_cane");

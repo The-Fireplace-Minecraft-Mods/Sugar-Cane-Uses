@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
 import psc_team.psc.PSC;
 import psc_team.psc.entity.tile.TileEntityDehydrator;
-import psc_team.psc.items.SCUItems;
+import psc_team.psc.items.PSCItems;
 import psc_team.psc.tools.Tools;
 
 /**
@@ -119,11 +119,11 @@ public class BlockDehydrator extends BlockContainer {
 			f -= 64;
 		}
 		while(fstacks > 0){
-			Tools.spawnItemAtPos(new ItemStack(SCUItems.fuelBar, 64), worldIn, pos);
+			Tools.spawnItemAtPos(new ItemStack(PSCItems.fuelBar, 64), worldIn, pos);
 			fstacks--;
 		}
 		if(f > 0)
-			Tools.spawnItemAtPos(new ItemStack(SCUItems.fuelBar, f), worldIn, pos);
+			Tools.spawnItemAtPos(new ItemStack(PSCItems.fuelBar, f), worldIn, pos);
 		super.breakBlock(worldIn, pos, state);
 	}
 	@Override

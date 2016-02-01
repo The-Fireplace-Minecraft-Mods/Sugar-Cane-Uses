@@ -1,5 +1,6 @@
 package psc_team.psc;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -11,8 +12,9 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import psc_team.psc.blocks.PSCBlocks;
 import psc_team.psc.handlers.PSCGuiHandler;
-import psc_team.psc.items.SCUItems;
+import psc_team.psc.items.PSCItems;
 import psc_team.psc.recipes.RecipeHandler;
 
 /**
@@ -40,10 +42,12 @@ public class PSC {
 	public void preInit(FMLPreInitializationEvent event){
 		//Register Items/Blocks/most everything else here
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new PSCGuiHandler());
-		SCUItems.createItems();
+		PSCBlocks.instantiateBlocks();
 	}
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
+		PSCItems.createItems();
+		PSCBlocks.createBlocks();
 		RecipeHandler.registerRecipes();
 		if(event.getSide().isClient())
 			registerItemRenders();
@@ -53,7 +57,8 @@ public class PSC {
 	public void registerItemRenders()
 	{
 		//Calls the registry to create Modeled Items.
-		reg(SCUItems.reinforcedSugarCane);
+		reg(PSCItems.reinforcedSugarCane);
+		reg(PSCBlocks.dehydrator);
 	}
 	@SideOnly(Side.CLIENT)
 	public static void reg(Item item) 
@@ -64,5 +69,15 @@ public class PSC {
 		//An Example Model was made for reinforced_sugar_cane
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 	    .register(item, 0, new ModelResourceLocation(MODID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
+	}
+	@SideOnly(Side.CLIENT)
+	public static void reg(Block block)
+	{
+		//Code to register item model locations
+		//Location = modid:item_unlocalized_name
+		//Example = sugarcaneuses:sugar_cane
+		//An Example Model was made for reinforced_sugar_cane
+		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+				.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MODID + ":" + block.getUnlocalizedName().substring(5), "inventory"));
 	}
 }

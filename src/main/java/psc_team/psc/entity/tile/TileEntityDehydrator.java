@@ -12,7 +12,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
-import psc_team.psc.items.SCUItems;
+import psc_team.psc.items.PSCItems;
 import psc_team.psc.recipes.DehydratorRecipes;
 import psc_team.psc.tools.Tools;
 
@@ -202,11 +202,11 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 			if(this.getStackInSlot(11) != null) {
 				if (this.getStackInSlot(11).stackSize < 64) {
 					depletedCounter -= 6400;
-					this.setInventorySlotContents(11, new ItemStack(SCUItems.depletedFuelBar, this.getStackInSlot(11).stackSize + 1));
+					this.setInventorySlotContents(11, new ItemStack(PSCItems.depletedFuelBar, this.getStackInSlot(11).stackSize + 1));
 				}
 			}else{
 				depletedCounter -= 6400;
-				this.setInventorySlotContents(11, new ItemStack(SCUItems.depletedFuelBar));
+				this.setInventorySlotContents(11, new ItemStack(PSCItems.depletedFuelBar));
 			}
 		}
 		this.worldObj.markBlockForUpdate(getPos());
