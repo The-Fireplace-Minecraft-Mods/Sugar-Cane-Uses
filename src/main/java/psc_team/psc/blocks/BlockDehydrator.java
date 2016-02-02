@@ -151,4 +151,9 @@ public class BlockDehydrator extends BlockContainer {
 	public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
 		return true;
 	}
+
+	@Override
+	public int getRenderType(){
+		return 3;
+	}
 }
