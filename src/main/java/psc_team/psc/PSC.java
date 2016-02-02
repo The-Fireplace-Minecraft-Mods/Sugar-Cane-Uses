@@ -10,9 +10,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import psc_team.psc.blocks.PSCBlocks;
+import psc_team.psc.entity.tile.TileEntityDehydrator;
 import psc_team.psc.handlers.PSCGuiHandler;
 import psc_team.psc.items.PSCItems;
 import psc_team.psc.recipes.RecipeHandler;
@@ -42,6 +44,7 @@ public class PSC {
 	public void preInit(FMLPreInitializationEvent event){
 		//Register Items/Blocks/most everything else here
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new PSCGuiHandler());
+		GameRegistry.registerTileEntity(TileEntityDehydrator.class, "dehydrator");
 		PSCBlocks.instantiateBlocks();
 	}
 	@Mod.EventHandler
