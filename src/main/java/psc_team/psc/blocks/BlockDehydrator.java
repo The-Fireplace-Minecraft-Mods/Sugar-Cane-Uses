@@ -12,8 +12,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.internal.FMLNetworkHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import psc_team.psc.PSC;
 import psc_team.psc.entity.tile.TileEntityDehydrator;
 import psc_team.psc.items.PSCItems;
@@ -141,5 +144,11 @@ public class BlockDehydrator extends BlockContainer {
 	public boolean isFullCube()
 	{
 		return false;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
+		return true;
 	}
 }
