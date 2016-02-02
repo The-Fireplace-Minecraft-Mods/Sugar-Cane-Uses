@@ -1,7 +1,6 @@
 package psc_team.psc.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /**
@@ -26,6 +25,6 @@ public class PSCBlocks {
 	 * 		The block being registered
 	 */
 	static void register(Block i){
-		GameRegistry.registerItem(Item.getItemFromBlock(i), i.getUnlocalizedName().substring(5));
+		GameRegistry.registerBlock(i, i.getUnlocalizedName().substring(5));
 	}
 }
