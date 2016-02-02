@@ -1,5 +1,8 @@
 <Items>
 item.reinforced_sugar_cane.name=Reinforced Sugar Cane
 
+<Blocks>
+tile.dehydrator.name=Dehydrator
+
 <Creative Tabs>
 itemGroup.PSC=§9Project Sugar Cane§r Items
