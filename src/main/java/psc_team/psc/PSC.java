@@ -45,7 +45,7 @@ public class PSC {
 		//Register Items/Blocks/most everything else here
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new PSCGuiHandler());
 		GameRegistry.registerTileEntity(TileEntityDehydrator.class, "dehydrator");
-		
+
 		PSCItems.createItems();
 		PSCBlocks.createBlocks();
 	}
