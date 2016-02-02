@@ -2,7 +2,7 @@ package psc_team.psc.container;
 
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.tileentity.TileEntityFurnace;
 import psc_team.psc.entity.tile.TileEntityDehydrator;
 import psc_team.psc.recipes.DehydratorRecipes;
 
@@ -20,14 +20,14 @@ public class SlotFuel extends Slot {
 	@Override
 	public boolean isItemValid(ItemStack stack)
 	{
-		return DehydratorRecipes.instance().isFuel(stack);
+		return DehydratorRecipes.isFuel(stack);
 	}
 	@Override
 	public void putStack(ItemStack stack)
 	{
 		if(stack != null){
 			this.inventory.setInventorySlotContents(this.getSlotIndex(), stack);
-			inv.addToFuel(GameRegistry.getFuelValue(stack));
+			inv.addToFuel(TileEntityFurnace.getItemBurnTime(stack));
 			this.inventory.setInventorySlotContents(getSlotIndex(), null);
 		}
 	}

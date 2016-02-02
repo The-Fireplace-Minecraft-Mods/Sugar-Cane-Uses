@@ -2,7 +2,7 @@ package psc_team.psc.recipes;
 
 import com.google.common.collect.Maps;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraft.tileentity.TileEntityFurnace;
 import psc_team.psc.tools.Tools;
 
 import java.util.Iterator;
@@ -70,7 +70,7 @@ public class DehydratorRecipes {
 		return poppingList;
 	}
 
-	public boolean isFuel(ItemStack item){
-		return GameRegistry.getFuelValue(item) > 0;
+	public static boolean isFuel(ItemStack item){
+		return TileEntityFurnace.getItemBurnTime(item) > 0;
 	}
 }
