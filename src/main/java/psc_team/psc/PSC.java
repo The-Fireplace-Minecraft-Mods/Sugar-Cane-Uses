@@ -45,12 +45,12 @@ public class PSC {
 		//Register Items/Blocks/most everything else here
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new PSCGuiHandler());
 		GameRegistry.registerTileEntity(TileEntityDehydrator.class, "dehydrator");
-		PSCBlocks.instantiateBlocks();
+		
+		PSCItems.createItems();
+		PSCBlocks.createBlocks();
 	}
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
-		PSCItems.createItems();
-		PSCBlocks.createBlocks();
 		RecipeHandler.registerRecipes();
 		if(event.getSide().isClient())
 			registerItemRenders();

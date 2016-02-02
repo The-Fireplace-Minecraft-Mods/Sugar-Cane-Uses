@@ -7,11 +7,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  * @author The_Fireplace
  */
 public class PSCBlocks {
-	public static Block dehydrator;
-
-	public static void instantiateBlocks(){
-		dehydrator = new BlockDehydrator();
-	}
+	public static Block dehydrator = new BlockDehydrator();
 
 	//Register Blocks
 	public static void createBlocks()
