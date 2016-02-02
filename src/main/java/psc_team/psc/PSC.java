@@ -61,6 +61,9 @@ public class PSC {
 	{
 		//Calls the registry to create Modeled Items.
 		reg(PSCItems.reinforcedSugarCane);
+		reg(PSCItems.fuelBar);
+		reg(PSCItems.depletedFuelBar);
+		reg(PSCItems.sugarCaneStick);
 		reg(PSCBlocks.dehydrator);
 	}
 	@SideOnly(Side.CLIENT)
