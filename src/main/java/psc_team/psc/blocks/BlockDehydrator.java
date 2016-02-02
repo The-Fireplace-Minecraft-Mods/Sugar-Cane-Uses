@@ -130,4 +130,16 @@ public class BlockDehydrator extends BlockContainer {
 	public TileEntity createNewTileEntity(World worldIn, int meta){
 		return new TileEntityDehydrator();
 	}
+
+	@Override
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isFullCube()
+	{
+		return false;
+	}
 }
