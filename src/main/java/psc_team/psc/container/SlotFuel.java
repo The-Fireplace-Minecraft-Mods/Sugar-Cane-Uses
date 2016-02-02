@@ -27,7 +27,7 @@ public class SlotFuel extends Slot {
 	{
 		if(stack != null){
 			this.inventory.setInventorySlotContents(this.getSlotIndex(), stack);
-			inv.addToFuel(TileEntityFurnace.getItemBurnTime(stack));
+			inv.addToFuel(TileEntityFurnace.getItemBurnTime(stack)*stack.stackSize);
 			this.inventory.setInventorySlotContents(getSlotIndex(), null);
 		}
 	}
