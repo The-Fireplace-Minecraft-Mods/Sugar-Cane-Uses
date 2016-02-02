@@ -11,6 +11,7 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
+import net.minecraft.util.ITickable;
 import net.minecraft.util.StatCollector;
 import psc_team.psc.items.PSCItems;
 import psc_team.psc.recipes.DehydratorRecipes;
@@ -22,7 +23,7 @@ import java.util.Map;
 /**
  * @author The_Fireplace
  */
-public class TileEntityDehydrator extends TileEntity implements ISidedInventory {
+public class TileEntityDehydrator extends TileEntity implements ISidedInventory, ITickable {
 	private ItemStack[] inventory;
 	public static final String PROP_NAME = "TileEntityDehydrator";
 	int storedFuel = 0;
@@ -41,6 +42,11 @@ public class TileEntityDehydrator extends TileEntity implements ISidedInventory 
 		writeToNBT(nbtTagCompound);
 		int metadata = getBlockMetadata();
 		return new S35PacketUpdateTileEntity(this.pos, metadata, nbtTagCompound);
+	}
+
+	@Override
+	public void update(){
+		dehydrateItems();
 	}
 
 	@Override
