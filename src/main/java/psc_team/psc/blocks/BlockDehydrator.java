@@ -35,6 +35,7 @@ public class BlockDehydrator extends BlockContainer {
 		setResistance(10.0F);
 		setHarvestLevel("pickaxe", 1);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		this.setBlockBounds(0.15F, 0F, 0.15F, 0.85F, 0.75F, 0.85F);
 	}
 
 	@Override
