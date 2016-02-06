@@ -50,7 +50,7 @@ public class DehydratorRecipes {
 	/**
 	 * Gets how many items will be output
 	 * @param is
-	 * 		The <b>input</b> ItemStack in the pop furnace recipe
+	 * 		The <b>input</b> ItemStack in the dehydrator recipe
 	 * @return
 	 * 		The number of items output for that input
 	 */

@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import psc_team.psc.api.DehydratorAPI;
 
 /**
  * @author The_Fireplace
@@ -24,7 +25,7 @@ public class RecipeHandler {
 	 */
 	public static void registerRecipes(){
 		//addRecipe(sugarCaneStack, "s", "g", "s", 's', sugarStack, 'g', glueStack);
-		DehydratorRecipes.instance().addDehydratorRecipe(saplingStack, deadBushStack, 1);
+		DehydratorAPI.addDehydratorRecipe(saplingStack, deadBushStack);
 	}
 
 	private static void addRecipe(ItemStack output, Object... inputs){
