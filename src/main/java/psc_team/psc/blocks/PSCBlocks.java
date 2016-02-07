@@ -8,11 +8,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class PSCBlocks {
 	public static Block dehydrator = new BlockDehydrator();
+	public static Block fertile_sand = new BlockFertileSand();
 
 	//Register Blocks
 	public static void createBlocks()
 	{
 		register(dehydrator);
+		register(fertile_sand);
 	}
 
 	/**

@@ -13,6 +13,7 @@ public class PSCItems
 	public static Item sugarCaneStick = new BasicItem("sugar_cane_stick");
 	public static Item fuelBar = new BasicItem("fuel_bar");
 	public static Item depletedFuelBar = new BasicItem("depleted_fuel_bar");
+	public static Item glue = new BasicItem("glue");
 	
 	//Register Items
 	public static void createItems()
@@ -21,6 +22,7 @@ public class PSCItems
 		register(sugarCaneStick);
 		register(fuelBar);
 		register(depletedFuelBar);
+		register(glue);
 	}
 
 	/**
