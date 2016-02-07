@@ -18,6 +18,7 @@ public class PSCItems
 	public static Item fuelBar = new BasicItem("fuel_bar");
 	public static Item depletedFuelBar = new BasicItem("depleted_fuel_bar");
 	public static Item glue = new BasicItem("glue");
+	public static Item brownSugar = new BasicItem("brownSugar");
 
 	//Register Items
 	public static void createItems()
@@ -27,6 +28,7 @@ public class PSCItems
 		register(fuelBar);
 		register(depletedFuelBar);
 		register(glue);
+		register(brownSugar);
 	}
 
 	/**
