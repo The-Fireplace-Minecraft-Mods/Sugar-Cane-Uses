@@ -1,20 +1,24 @@
 package psc_team.psc.items;
 
 import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 /*
  * @author SirBlobman
+ * @author MCDeathslimbs
  */
 public class PSCItems
 {
+	//Materials
+
 	//Item Objects
 	public static Item reinforcedSugarCane = new BasicItem("reinforced_sugar_cane");
 	public static Item sugarCaneStick = new BasicItem("sugar_cane_stick");
 	public static Item fuelBar = new BasicItem("fuel_bar");
 	public static Item depletedFuelBar = new BasicItem("depleted_fuel_bar");
 	public static Item glue = new BasicItem("glue");
-	
+
 	//Register Items
 	public static void createItems()
 	{
@@ -32,5 +36,6 @@ public class PSCItems
 	 */
 	static void register(Item i){
 		GameRegistry.registerItem(i, i.getUnlocalizedName().substring(5));
+
 	}
 }
