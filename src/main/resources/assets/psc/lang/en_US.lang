@@ -3,6 +3,9 @@ item.reinforced_sugar_cane.name=Reinforced Sugar Cane
 item.fuel_bar.name=Fuel Bar
 item.depleted_fuel_bar.name=Depleted Fuel Bar
 item.sugar_cane_stick.name=Sugar Cane Stick
+item.brown_sugar.name=Brown Sugar
+item.reinforced_pickaxe.name=Cane Reinforced Pickaxe
+item.glue.name=Glue
 
 <Blocks>
 tile.dehydrator.name=Dehydrator

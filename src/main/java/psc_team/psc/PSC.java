@@ -64,6 +64,9 @@ public class PSC {
 		reg(PSCItems.fuelBar);
 		reg(PSCItems.depletedFuelBar);
 		reg(PSCItems.sugarCaneStick);
+		reg(PSCItems.brownSugar);
+		reg(PSCItems.glue);
+		reg(PSCItems.reinforcedPickaxe);
 		reg(PSCBlocks.dehydrator);
 	}
 	@SideOnly(Side.CLIENT)
@@ -71,7 +74,7 @@ public class PSC {
 	{
 		//Code to register item model locations
 		//Location = modid:item_unlocalized_name
-		//Example = sugarcaneuses:sugar_cane
+		//Example = psc:sugar_cane
 		//An Example Model was made for reinforced_sugar_cane
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 	    .register(item, 0, new ModelResourceLocation(MODID + ":" + item.getUnlocalizedName().substring(5), "inventory"));
@@ -81,7 +84,7 @@ public class PSC {
 	{
 		//Code to register item model locations
 		//Location = modid:item_unlocalized_name
-		//Example = sugarcaneuses:sugar_cane
+		//Example = psc:sugar_cane
 		//An Example Model was made for reinforced_sugar_cane
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
 				.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(MODID + ":" + block.getUnlocalizedName().substring(5), "inventory"));
