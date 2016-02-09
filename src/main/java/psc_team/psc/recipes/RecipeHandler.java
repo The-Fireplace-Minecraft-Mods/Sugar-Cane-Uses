@@ -27,6 +27,7 @@ public class RecipeHandler {
 	static ItemStack fertileSandStack = new ItemStack(PSCBlocks.fertile_sand);
 	static ItemStack sandStack = new ItemStack(Blocks.sand);
 	static ItemStack bonemealStack = new ItemStack(Items.dye,1,15);
+	static ItemStack brownSugarStack = new ItemStack(PSCItems.brownSugar);
 
 	/**
 	 * Register recipes here. The first line will be a <b>commented out</b> example.
@@ -36,9 +37,11 @@ public class RecipeHandler {
 		DehydratorAPI.addDehydratorRecipe(saplingStack, deadBushStack);
 		DehydratorAPI.addDehydratorRecipe(slimeStack, glueStack);
 		addRecipe(fertileSandStack, "sss", "sbs", "sss", 's', sandStack, 'b', bonemealStack);
+
 	}
 
 	private static void addRecipe(ItemStack output, Object... inputs){
 		GameRegistry.addRecipe(new ShapedOreRecipe(output, inputs));
+		GameRegistry.addShapelessRecipe(brownSugarStack);
 	}
 }
