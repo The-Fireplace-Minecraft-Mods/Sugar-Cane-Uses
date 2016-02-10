@@ -37,11 +37,10 @@ public class RecipeHandler {
 		DehydratorAPI.addDehydratorRecipe(saplingStack, deadBushStack);
 		DehydratorAPI.addDehydratorRecipe(slimeStack, glueStack);
 		addRecipe(fertileSandStack, "sss", "sbs", "sss", 's', sandStack, 'b', bonemealStack);
-
 	}
 
 	private static void addRecipe(ItemStack output, Object... inputs){
 		GameRegistry.addRecipe(new ShapedOreRecipe(output, inputs));
-		GameRegistry.addShapelessRecipe(brownSugarStack);
+		GameRegistry.addShapelessRecipe(sugarCaneStack, 9, brownSugarStack);
 	}
 }
